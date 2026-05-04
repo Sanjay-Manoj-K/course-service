@@ -5,7 +5,7 @@ env:
   variables:
     AWS_REGION: "ap-south-2"
     ECR_REPO:
-     "<account>.dkr.ecr.<region>.amazonaws.com/student-service"
+     "<account>.dkr.ecr.<region>.amazonaws.com/course-service"
  
 phases:
   pre_build:
@@ -17,7 +17,7 @@ phases:
          _VERSION:0:7}
   build:
     commands:
-      - cd day2-microservices/student-service
+      - cd day2-microservices/course-service
       - docker build -t $ECR_REPO:$IMAGE_TAG .
       - docker tag $ECR_REPO:$IMAGE_TAG $ECR_REPO:latest
   post_build:
